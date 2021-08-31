@@ -1,0 +1,25 @@
+DROP DATABASE IF EXISTS `hms`;
+
+CREATE DATABASE hms DEFAULT CHARACTER SET sjis COLLATE 'sjis_japanese_ci';
+
+USE hms;
+
+CREATE TABLE hospital
+(
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	PRIMARY KEY(id)
+)ENGINE=InnoDB COMMENT='•a‰@'
+;
+
+CREATE TABLE patient
+(
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	hospitalId INTEGER,
+	name VARCHAR(50),
+	bloodType VARCHAR(50),
+	height DOUBLE,
+	PRIMARY KEY(id),
+	FOREIGN KEY(hospitalId) REFERENCES hospital(id)
+)ENGINE=InnoDB COMMENT='Š³ŽÒ'
+;
